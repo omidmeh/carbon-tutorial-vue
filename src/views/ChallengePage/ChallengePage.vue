@@ -75,7 +75,7 @@
                     <p>Your points will appear on your On24 account in the next 24 hours. You can now head back to your On24 Dashboard and attempt the other challenges to collect more points!</p>
                     <p></p>
                     <p>You can also play with the source code for this app and make it even cooler. Don't forget to send a PullRequest if you think everyone will benefit from your changes :)</p>
-                    <h4>Thanks for joining us in this short jounry :D</h4>
+                    <h4>Thanks for joining us in this short journey :D</h4>
                 </div>
                 
               </div>
