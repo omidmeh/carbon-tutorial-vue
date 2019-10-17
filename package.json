@@ -18,6 +18,8 @@
     "carbon-components": "^10.7.0",
     "core-js": "^2.6.5",
     "moment": "^2.24.0",
+    "validator": "^11.1.0",
+    "validator-js": "^0.2.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.0.3"

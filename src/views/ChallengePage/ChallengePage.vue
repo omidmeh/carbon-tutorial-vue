@@ -35,7 +35,7 @@
           <cv-tab label="Give me my points"  :selected="t2_selected" :disabled="submission_tab_disabled">
             <div class="bx--grid bx--grid--no-gutter bx--grid--full-width">
               <div class="bx--row challenge-page__tab-content">
-                <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-5 bx--offset-lg-5 ">
+                <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-1 bx--offset-lg-5 ">
                   <h1 class="">Almost there...</h1>
                   <p class="">Submit the following form and your points will magically appear</p>
                   <cv-form>
@@ -96,6 +96,8 @@ import ThumbsUp32 from '@carbon/icons-vue/es/thumbs-up/32';
 import Touch32 from '@carbon/icons-vue/es/touch--1/32';
 import Play32 from "@carbon/icons-vue/es/play--filled--alt/32"
 import moment from 'moment'
+import validator from 'validator';
+
 export default {
   name: 'ChallengePage',
   components: {
@@ -140,15 +142,11 @@ export default {
       disable_submission_tabs: function() {
         this.submission_tab_disabled = true;
       },
-      validEmail: function (email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-      },
       submit: function(e) {
 
         e.preventDefault();
 
-        if(this.validEmail(this.input_email)) {
+        if(validator.isEmail(this.input_email)) {
           this.email_invalid=undefined;
         }else {
           this.email_invalid="Invalid Email";
@@ -193,7 +191,7 @@ export default {
     },
     notReadyForSubmit() {
       return !this.checkbox_value
-      return !(this.validEmail(this.input_email))
+      // return !(validator.isEmail(this.input_email))
     }
   }
 };
