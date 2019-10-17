@@ -163,22 +163,25 @@ export default {
         .then(function (response) {
           console.log("success");
           parent_obj.toast_visible = true;
-          parent_obj.toast_title = "Success"
-          parent_obj.toast_subtitle = "Your points are on their way"
-          parent_obj.toast_caption = "This is the caption"
+          parent_obj.toast_title = "Success";
+          parent_obj.toast_subtitle = "Your points are on their way";
+          parent_obj.toast_caption = "This is the caption";
           // currentObj.output = response.data;
           parent_obj.submission_active = false;     
           parent_obj.disable_submission_tabs();   
           parent_obj.activate_t3()
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error.response);
           parent_obj.toast_visible = true;
-          parent_obj.toast_title = "Oops"
-          parent_obj.toast_subtitle = "There was a problem"
-          parent_obj.toast_caption = error
+          parent_obj.toast_title = "Oops";
+          parent_obj.toast_subtitle = "There was a problem";
           parent_obj.submission_active = false;     
-          // currentObj.output = error;
+          if (error.response.status === 409) {
+            parent_obj.toast_caption = "I looks like you've already done this step. Your points should arrive soon!";
+          } else {
+            parent_obj.toast_caption = error.response.data.error.message;
+          }
         });
       },
       doClose : function() {
