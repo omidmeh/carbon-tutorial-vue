@@ -37,6 +37,7 @@
               <div class="bx--row challenge-page__tab-content">
                 <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-1 bx--offset-lg-5 ">
                   <h1 class="">Almost there...</h1>
+                  <br>
                   <p class="">Submit the following form and your points will magically appear</p>
                   <cv-form>
                     <cv-text-input 
@@ -49,6 +50,7 @@
                     label="I agree to use my email here" 
                     v-model="checkbox_value"
                     value="checkbox_value">  </cv-checkbox>
+                    <br>
                     <cv-button @click="submit" :disabled="notReadyForSubmit">Submit</cv-button>
                   </cv-form>
                   <cv-inline-loading
@@ -70,11 +72,13 @@
           <cv-tab label="Where's my points" :selected="t3_selected">
             <div class="bx--grid bx--grid--no-gutter bx--grid--full-width">
               <div class="bx--row challenge-page__tab-content">
-                <div class="bx--col-md-4 bx--col-lg-7">
-                  <h2 class="challenge-page__subheading">You did it!!</h2>
+                <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-1 bx--offset-lg-5">
+                  <h2 class="">You did it!!</h2>
+                  <br>
                     <p>Your points will appear on your On24 account in the next 24 hours. You can now head back to your On24 Dashboard and attempt the other challenges to collect more points!</p>
                     <p></p>
                     <p>You can also play with the source code for this app and make it even cooler. Don't forget to send a PullRequest if you think everyone will benefit from your changes :)</p>
+                    <br>
                     <h4>Thanks for joining us in this short journey :D</h4>
                 </div>
                 
