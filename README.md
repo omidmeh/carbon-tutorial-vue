@@ -1,52 +1,74 @@
-## Carbon Tutorial Vue
 
-This tutorial will guide you in creating a Vue app with the [Carbon Design System](https://www.carbondesignsystem.com/). We’ll teach you the ins and outs of using Carbon components, while introducing web development best practices along the way.
+ TODOs: 
+ - Remove wording of "Carbon Tutorial Vue" from title of page
+ - Clean up repo and move to IBMCode
+ - Change Deploy to IBM Cloud button to point to new repo
+ - Add screen shot of new app in the last step
+ - Test everything with a fresh account
 
-Get started by visiting the [tutorial instructions](./docs/overview).
 
-## Available Scripts
+# Deploy your first app to IBM Cloud
 
-This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/) with the following config.
+In this challenge we will be deploying our very first Cloud Foundry application to IBM Cloud using an automated deployment through an IBM Cloud DevOps Toolchain. This toolchain will then build and deploy your application to IBM Cloud when you click on the **Deploy to IBM Cloud** button further below.
 
-```
-vue create carbon-tutorial-vue
+## Overview
 
-Vue CLI v3.9.2
-? Please pick a preset: Manually select features
-? Check the features needed for your project: Babel, Router, CSS Pre-processors, Linter, Unit
-? Use history mode for router? (Requires proper server setup for index fallback in production) No
-? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): Sass/SCSS (with node-sass)
-? Pick a linter / formatter config: Prettier
-? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)Lint on save
-? Pick a unit testing solution: Jest
-? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? In package.json
-? Save this as a preset for future projects? (y/N) n
-```
+The toolchain that will be created for us looks like this:
 
-In the project directory, you can run:
 
-### 'yarn serve'
+![IBM Cloud toolchain](./images/toolchain.png)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+This toolchain has 4 components:
+1. Issue management through a hosted GitLab instance on IBM Cloud
+2. A git repo hosted on IBM Cloud
+3. The Eclipse Orion web IDE
+4. A delivery pipeline to build and deploy your application to IBM Cloud
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+The pipeline that will build and deploy your application looks like this:
 
-### `yarn build`
+![Build and Deploy Pipeline](./images/pipeline.png)
 
-This will create a dist folder which can be deployed to gh-pages or any other host.
+This pipeline has the following 2 steps:
 
-### 'yarn lint'
+1. Build - Your application code will be pulled from your repo and the dependencies will be built
+2. Deploy - Your application build artifacts will then be deployed to IBM Cloud
 
-Runs the linter against your code.
+## Steps
 
-### 'yarn test:unit'
+1. Click on the **Deploy to IBM Cloud** button below
 
-Runs your unit tests
 
-## Learn More
+   `TODO: Change the repo address in this button to point to the new repo`
 
-You can learn more in the [Vue CLI Overview](https://cli.vuejs.org/guide).
+   [![Deploy to IBM Cloud](https://cloud.ibm.com/devops/setup/deploy/button.png)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/omidmeh/carbon-tutorial-vue&branch=vue-step-1)
 
-To learn Vue, check out the [Vue documentation](https://vuejs.org/).
+2. Then, you might be asked to sign into IBM Cloud. Sign in if you aren't already.
+
+3. Next, you will be taken to the toolchain creation page. Enter a new name for your toolchain.
+
+![new name](./images/newName.png)
+
+4. After that, click on **Delivery Pipeline** in the *Tool Integrations* section. This will open up some pipeline configurations that we need to set.
+
+![Tool integrations](./images/toolIntegrations.png)
+
+5. There should be a field asking for an *IBM Cloud API Key*. Click on the blue **Create** button next to that field.
+
+![pipeline configurations](./images/pipelineConfigurations.png)
+
+6. A new prompt will then pop up and ask if you want to create a new API key for this pipeline. Click **Create**.
+
+![API popup](./images/APICreate.png)
+
+7. Once that is done, you will see some information such as *Region*, *Space*, *Organization* appear. This means you are good to go, click on **Create** at the top right of the page.
+
+8. Then, you will be taken to your new toolchain. From here you can click on the pipeline if you want to view your application being built or you can remain on the toolchain page until the pipeline is done building.
+
+9. From the toolchain page, you will now have the ability to go directly to your application by clicking on the **Visit app URL** next to the title of your toolchain. 
+
+![View app URL](./images/viewAppURL.png)
+
+`TODO: Insert image of app`
+
+## Summary
+In this challenge we deployed our first application using the IBM Cloud DevOps Toolchains which allowed us to automatically build and push the application to IBM Cloud. Be sure to explore the app that you deployed and check out the other challenges.
