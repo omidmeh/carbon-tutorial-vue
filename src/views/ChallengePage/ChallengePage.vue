@@ -24,7 +24,10 @@
                     <ThumbsUp32 aria-label="ThumbsUp Image" />
                   </p>
                   <p class="challenge-page_didit">
-                    <cv-button :icon="Idea"  @click="activate_t2">
+                    <cv-button :icon="Idea"  
+                                @click="activate_t2" 
+                                id="running-button"
+                                 @mouseover="move_button">
                       Give me my points
                     </cv-button>
                   </p>
@@ -73,11 +76,11 @@
             <div class="bx--grid bx--grid--no-gutter bx--grid--full-width">
               <div class="bx--row challenge-page__tab-content">
                 <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-1 bx--offset-lg-5">
-                  <h2 class="">You did it!!</h2>
+                  <h1 class="">You did it!!</h1>
                   <br>
-                    <p>Your points will appear on your On24 account in the next 24 hours. You can now head back to your On24 Dashboard and attempt the other challenges to collect more points!</p>
+                    <p>Your points will appear on your On24 account in the next 24 hours. You can now head back to your On24 Dashboard and attempt the other challenges and collect more points!</p>
                     <p></p>
-                    <p>You can also play with the source code for this app and make it even cooler. Don't forget to send a PullRequest if you think everyone will benefit from your changes :)</p>
+                    <!-- <p>You can also play with the source code for this app and make it even cooler. Don't forget to send a PullRequest if you think everyone will benefit from your changes :)</p> -->
                     <br>
                     <h4>Thanks for joining us in this short journey :D</h4>
                 </div>
@@ -190,6 +193,15 @@ export default {
       },
       doClose : function() {
         this.toast_visible = false;
+      },
+      move_button: function(event) {
+        var caller = event.target;
+        var randX = Math.floor(Math.random() * (window.innerWidth - 100));
+        var randY = Math.floor(Math.random() * (window.innerHeight - 100));
+        console.log([randX, randY]);
+        console.log(caller);
+        
+        // caller.stop().animate({"left": randX + "px", "top": randY + "px"});
       }
   },
   computed: {
@@ -226,7 +238,7 @@ export default {
 }
 
 .challenge-page_didit {
-  @include carbon--type-style('display-04');
+  // @include carbon--type-style('display-04');
   // align-items: center;
   padding-bottom: $layout-02;
   text-align: center;
