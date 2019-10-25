@@ -3,7 +3,7 @@
     <cv-skip-to-content href="#main-content"
       >Skip to content</cv-skip-to-content
     >
-    <cv-header-name to="/" prefix="IBM">Carbon Tutorial</cv-header-name>
+    <cv-header-name to="/" prefix="DigitalDeveloperConference">Challenge 1</cv-header-name>
     <cv-header-nav>
       <cv-header-menu-item to="/challenge">Challenge</cv-header-menu-item>
       <cv-header-menu-item to="/repos">Repositories</cv-header-menu-item>
