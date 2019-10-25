@@ -34,7 +34,7 @@
                     <br>
                     <div class="bx--col-sm-16 bx--col-md-4 bx--col-lg-4 bx--offset-sm-0 bx--offset-md-2 bx--offset-lg-6"> 
                       <cv-tile> 
-                        <div class="secret_word" :id={secretWord}>
+                        <div class="secret_word">
                       potato
                     </div>
                      </cv-tile>
@@ -53,9 +53,7 @@
                   </p> -->
                   <p class="challenge-page_didit">
                     <cv-button :icon="Idea"  
-                                @click="activate_t2" 
-                                id="running-button"
-                                 @mouseover="move_button">
+                                @click="activate_t2">
                       Want more challenges?
                     </cv-button>
                   </p>
@@ -82,9 +80,7 @@
                     <div class="challenge-page_didit">
                       
                 <cv-button :icon="Idea"  
-                                @click="activate_t3" 
-                                id="running-button"
-                                 @mouseover="move_button">
+                                @click="activate_t3">
                       I want to know what's behind this
                     </cv-button>
                     </div>
@@ -103,6 +99,7 @@
                   </p>
                   <br><br><br><br><br>
                   <cv-button :icon="Idea"  
+                                class="moving_button"
                                 @click="activate_t3" 
                                 id="running-button"
                                  @mouseover="move_button">
@@ -222,12 +219,12 @@ export default {
       },
       move_button: function(event) {
         var caller = event.target;
+        
         var randX = Math.floor(Math.random() * (window.innerWidth - 100));
         var randY = Math.floor(Math.random() * (window.innerHeight - 100));
-        console.log([randX, randY]);
-        console.log(caller);
-        
-        // caller.stop().animate({"left": randX + "px", "top": randY + "px"});
+
+        caller.style.left = randX+"px";
+        caller.style.top = randY+"px";
       }
   },
   computed: {
@@ -302,6 +299,11 @@ export default {
 .blur {
   //  color: transparent;
   //  text-shadow: 0 0 15px rgba(0,0,0,0.9);
+}
+
+.moving_button {
+    position: fixed;
+    z-index: 2;   
 }
 
 </style>
