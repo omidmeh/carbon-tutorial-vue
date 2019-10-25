@@ -18,71 +18,96 @@
             <div class="bx--grid bx--grid--no-gutter bx--grid--full-width">
               <div class="bx--row challenge-page__tab-content">
                 <div class="bx--col-md-16 bx--col-lg-16">
-                  <h1 class="challenge-page_didit">Yay... You did it!</h1>
-                  <!-- <img src="https://media.giphy.com/media/XreQmk7ETCak0/source.gif" alt=""> -->
+                  <h1 class="challenge-page_didit">
+                    <ThumbsUp32 aria-label="ThumbsUp Image" /> 
+                     Yay... You did it! 
+                    <div :style="{transform: 'scale(-1,1)', display: 'inline-block'}">
+                      <ThumbsUp32 aria-label="ThumbsUp Image" />
+                    </div>
+                    </h1>
+                    <br>
                   <p class="challenge-page_didit">
+                    Congrats on your first app here!
+                    <br>
+                    Enter the following secret code back <u> in the challenge page</u> to mark it complete:
+                    </p>
+                    <br>
+                    <div class="bx--col-sm-16 bx--col-md-4 bx--col-lg-4 bx--offset-sm-0 bx--offset-md-2 bx--offset-lg-6"> 
+                      <cv-tile> 
+                        <div class="secret_word" :id={secretWord}>
+                      potato
+                    </div>
+                     </cv-tile>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                  <!-- <img src="https://media.giphy.com/media/XreQmk7ETCak0/source.gif" alt=""> -->
+                  <!-- <p class="challenge-page_didit">
                     <ThumbsUp32 aria-label="ThumbsUp Image" />
-                  </p>
+                  </p> -->
                   <p class="challenge-page_didit">
                     <cv-button :icon="Idea"  
                                 @click="activate_t2" 
                                 id="running-button"
                                  @mouseover="move_button">
-                      Give me my points
+                      Want more challenges?
                     </cv-button>
                   </p>
                 </div>
               </div>
             </div>
           </cv-tab>
-          <cv-tab label="Give me my points"  :selected="t2_selected" :disabled="submission_tab_disabled">
+          <cv-tab label="More Challenges?"  :selected="t2_selected" :disabled="submission_tab_disabled">
             <div class="bx--grid bx--grid--no-gutter bx--grid--full-width">
               <div class="bx--row challenge-page__tab-content">
                 <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-1 bx--offset-lg-5 ">
-                  <h1 class="">Almost there...</h1>
+                  <h1 class="">Make sure you've entered the secret code</h1>
                   <br>
-                  <p class="">Submit the following form and your points will magically appear</p>
-                  <cv-form>
-                    <cv-text-input 
-                      v-model="input_email" 
-                      label="IBMID" 
-                      type="email"
-                      :invalid-message="email_invalid"
-                      placeholder="IBMID you used to sign up for the conference"> </cv-text-input>
-                    <cv-checkbox 
-                    label="I agree to use my email here" 
-                    v-model="checkbox_value"
-                    value="checkbox_value">  </cv-checkbox>
-                    <br>
-                    <cv-button @click="submit" :disabled="notReadyForSubmit">Submit</cv-button>
-                  </cv-form>
-                  <cv-inline-loading
-                    v-if="submission_active"
-                    error-text="Something went wrong"
-                    loading-text="Working on it, Beep Boop!"
-                    :active="submission_active"></cv-inline-loading>
-                </div>
-                <div class="bx--col-md-4 bx--col-lg-7">
-                  <cv-toast-notification v-if="toast_visible" 
-                    :title="toast_title"
-                    :sub-title="toast_subtitle"
-                    :caption="toast_caption"
-                    @close="doClose"></cv-toast-notification>
-                </div>
+                  <p class="">
+                    Don't forget to enter the secret code from the previous page into your challenges page.
+                    <br><br>
+                    If you've done that, you're done. You can find even more challenges on the challenges page.
+                    <br><br>
+                    You're still reading this? Ok fine! If you've done all the challenges in the challenges page and are looking for something even 
+                    more you <u> could </u> click  on the button below. But there's nothing there... at least, nothing useful!
+                    
+                    </p>
+                    <br><br><br><br>
+                    <div class="challenge-page_didit">
+                      
+                <cv-button :icon="Idea"  
+                                @click="activate_t3" 
+                                id="running-button"
+                                 @mouseover="move_button">
+                      I want to know what's behind this
+                    </cv-button>
+                    </div>
               </div>
+                </div>
             </div>
           </cv-tab>
-          <cv-tab label="Where's my points" :selected="t3_selected">
+          <cv-tab label="Nothing here!" :selected="t3_selected">
             <div class="bx--grid bx--grid--no-gutter bx--grid--full-width">
               <div class="bx--row challenge-page__tab-content">
                 <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-6 bx--offset-sm-0 bx--offset-md-1 bx--offset-lg-5">
-                  <h1 class="">You did it!!</h1>
+                  <h1 class="">Now that you insist...</h1>
                   <br>
-                    <p>Your points will appear on your On24 account in the next 24 hours. You can now head back to your On24 Dashboard and attempt the other challenges and collect more points!</p>
-                    <p></p>
-                    <!-- <p>You can also play with the source code for this app and make it even cooler. Don't forget to send a PullRequest if you think everyone will benefit from your changes :)</p> -->
-                    <br>
-                    <h4>Thanks for joining us in this short journey :D</h4>
+                  <p>
+                    Like I said, you won't find anything good behind this. But if you must, go ahead!
+                  </p>
+                  <br><br><br><br><br>
+                  <cv-button :icon="Idea"  
+                                @click="activate_t3" 
+                                id="running-button"
+                                 @mouseover="move_button">
+                      I'm a button, Click me
+                    </cv-button>
                 </div>
                 
               </div>
@@ -116,6 +141,7 @@ export default {
   },
   data: function() {
     return {
+      show: false,
       Idea: Play32,
       t1_selected: false,
       t2_selected: false,
@@ -267,4 +293,15 @@ export default {
 .challenge-page__label {
   @include carbon--type-style('heading-01');
 }
+
+.secret_word {
+  @include carbon--type-style('code-02');
+  font-size:  rem(30px);
+  text-align: center;
+}
+.blur {
+  //  color: transparent;
+  //  text-shadow: 0 0 15px rgba(0,0,0,0.9);
+}
+
 </style>
